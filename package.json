@@ -22,6 +22,7 @@
     "express": "^4.17.1",
     "express-ip": "^1.0.4",
     "mongoose": "^5.10.0",
+    "nodemon": "^2.0.4",
     "shortid": "^2.2.15"
   }
 }
