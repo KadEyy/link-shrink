@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+*{
+    font-family: 'Lato', sans-serif;
+    padding: 0;
+    margin: 0 auto;
+    color: #1f1f1f;
+}
+.container{
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.container > h1{
+    font-size: 3.5rem;
+}
+.inputBox{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 20px 0;
+}
+.inputBox > input{
+    flex: 1;
+    font-size: 1.1rem;
+    border: #b3b3b3 solid 1px;
+    background-color: #FFF;
+    padding: 3px 4px;
+    border-radius: 3px;
+}
+.inputBox > input:hover, input:active, input:focus{
+    border: #1f1f1f solid 1px;
+    outline: none;
+}
+.inputBox > button{
+    margin-left: 20px;
+    font-size: 1.1rem;
+    border: #b3b3b3 solid 1px;
+    background-color: #FFF;
+    padding: 3px 4px;
+    border-radius: 3px;
+}
+.inputBox > button:hover, button:active, button:focus{
+    border: #1f1f1f solid 1px;
+    outline: none;
+}
+.linkTable{
+    width: 100%;
+}
+.linkTable th{
+    text-align: left;
+}
+.linkTable tr{
+    padding: 5px;
+}
+.linkTable .copy{
+    text-decoration: underline;
+    cursor: pointer;
+}

@@ -3,8 +3,48 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Link-Shrink</title>
+        <link type="text/css" rel="stylesheet" href="../public/css/styles.css"/>
     </head>
     <body>
-        
+        <div class="container">
+            <h1>Link-Shrink</h1>
+            <form action="" method="POST" class="inputBox">
+                <input required name="link" placeholder="Your URL" type="url"/>
+                <button>Confirm</button>
+            </form>
+            <table class="linkTable">
+                <thead>
+                    <tr>
+                        <th>L.P.</th>
+                        <th>URL</th>
+                        <th>Shortended URL</th>
+                        <th>Visit count</th>
+                        <th>Copy shortended</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% yourLinks.forEach((yourLink, i) => { %>
+                        <tr>
+                            <td><%= i + 1 %></td>
+                            <td><a href="<%= yourLink.link %>"><%= yourLink.link %></a></td>
+                            <td><%= host + '/' + yourLink.shortid %></td>
+                            <td><%= yourLink.visitCount %></td>
+                            <td><span class="copy" onClick="copy('<%= host + '/' + yourLink.shortid %>')">Copy</span></td>
+                        </tr>
+                    <%})%>
+                </tbody>
+            </table>
+         </div>
+         <script>
+             const copy = (string) => {
+                 const temp = document.createElement('input');
+                 temp.value = string;
+                 document.body.appendChild(temp);
+                 temp.select();
+                 temp.setSelectionRange(0, 99999);
+                 document.execCommand('copy');
+                 temp.remove();
+             }
+         </script>
     </body>
 </html>
