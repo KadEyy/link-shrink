@@ -42,6 +42,8 @@ app.post('/', async (req, res) => {
 app.get('/:id', async (req, res) => {
     const id = req.params.id;
     const shortened = await Shortened.findOne({shortid: id});
+    shortened.visitCount++;
+    await shortened.save();
     shortened ? res.redirect(shortened.link) : res.status(404).render('404');
 })
 
