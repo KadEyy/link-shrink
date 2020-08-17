@@ -7,7 +7,7 @@
     color: #1f1f1f;
 }
 .container{
-    max-width: 600px;
+    max-width: 700px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -54,7 +54,14 @@
 .linkTable tr{
     padding: 5px;
 }
-.linkTable .copy{
+.linkTable .copy, .delete{
     text-decoration: underline;
     cursor: pointer;
+}
+
+.linkTable .delete, .delete:hover, .delete:active, .delete:focus{
+    font-size: medium;
+    background-color: #FFF;
+    border: none;
+    outline: none;
 }

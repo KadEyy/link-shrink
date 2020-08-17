@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const Shortened = require('./models/shortened');
 
 try{
-    mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true}, () => {
+    mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/link-shrink', {useNewUrlParser: true, useUnifiedTopology: true}, () => {
         console.log('Connected to DB!');
     })
 }
@@ -43,6 +43,12 @@ app.get('/:id', async (req, res) => {
     const id = req.params.id;
     const shortened = await Shortened.findOne({shortid: id});
     shortened ? res.redirect(shortened.link) : res.status(404).render('404');
+})
+
+app.post('/:id', async (req, res) => {
+    const id = req.params.id;
+    const shortened = await Shortened.deleteOne({shortid: id});
+    res.redirect('/');
 })
 
 app.listen(process.env.PORT || 3000, () => console.log(`App running on port ${process.env.PORT || 3000}!`));

@@ -18,18 +18,20 @@
                         <th>L.P.</th>
                         <th>URL</th>
                         <th>Shortended URL</th>
-                        <th>Visit count</th>
-                        <th>Copy shortended</th>
+                        <th>Visits</th>
+                        <th>Copy</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% yourLinks.forEach((yourLink, i) => { %>
                         <tr>
                             <td><%= i + 1 %></td>
-                            <td><a href="<%= yourLink.link %>"><%= yourLink.link %></a></td>
+                            <td><a title="<%= yourLink.link %>" href="<%= yourLink.link %>"><%= yourLink.link.substring(0, 15) %></a></td>
                             <td><%= host + '/' + yourLink.shortid %></td>
                             <td><%= yourLink.visitCount %></td>
                             <td><span class="copy" onClick="copy('<%= host + '/' + yourLink.shortid %>')">Copy</span></td>
+                            <td><form action="<%= yourLink.shortid %>" method="POST"><button class="delete">Delete</button></form></td>
                         </tr>
                     <%})%>
                 </tbody>
